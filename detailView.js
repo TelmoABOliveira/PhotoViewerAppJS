@@ -30,11 +30,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function saveRating() {
-        const newRating = parseInt(ratingValue.value);
-        if (!isNaN(newRating) && newRating >= 0 && newRating <= 10) {
-            ratingTextElement.textContent = `Rating: ${newRating} / 10`;
-        }
-        resetRatingDisplay();
+    const newRating = parseInt(ratingValue.value);
+
+    if (isNaN(newRating) || newRating < 0 || newRating > 10) {
+        alert('Please enter a valid rating between 0 and 10.');
+    } else {
+        ratingTextElement.textContent = `Rating: ${newRating} / 10`;
+    }
+    resetRatingDisplay();
     }
 
     function cancelRating() {
